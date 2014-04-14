@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Widgets In Tabs v0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-04-14 20:02:59+0000\n"
+"Last-Translator: Anas H. Sulaiman <ahs.pw>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Arabic\n"
+"X-Poedit-Country: SAUDI ARABIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#. translators: plugin header field 'Name'
+#: widgets-in-tabs.php:0
+#: widgets-in-tabs.php:39
+#: widgets-in-tabs.php:78
+#@ wit
+msgid "Widgets In Tabs"
+msgstr ""
+
+#. translators: plugin header field 'Description'
+#: widgets-in-tabs.php:0
+#: widgets-in-tabs.php:40
+#@ wit
+msgid "Group any number of widgets into one tabbed, light, and beautiful widget."
+msgstr "جمّع أي عدد من المربعات الجانبية في مربع جانبي واحد، مبوب وخفيف وجميل."
+
+#. translators: plugin header field 'Author'
+#: widgets-in-tabs.php:0
+#@ wit
+msgid "Anas H. Sulaiman"
+msgstr "أنس هشام سليمان"
+
+#. translators: plugin header field 'AuthorURI'
+#: widgets-in-tabs.php:0
+#@ wit
+msgid "http://ahs.pw/"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: widgets-in-tabs.php:0
+#@ wit
+msgid "0.1"
+msgstr ""
+
+#: widgets-in-tabs.php:24
+#@ wit
+msgid "Widgets In Tabs Area"
+msgstr "مربعات Widgets In Tabs"
+
+#: widgets-in-tabs.php:25
+#@ wit
+msgid "This is a virtual area (i.e. it won't appear anywhere in your blog). Add widgets here to show them in the \"Widgets In Tabs\" widget. Make sure to give each widget a title or an \"@\" will be used instead. You DON'T want to add Widgets In Tabs widget here."
+msgstr "إن هذه مساحة افتراضية (أي أنها لن تظهر على مدونتك). أضف المربعات هنا لإظهارها في مربع \"Widgets In Tabs\". تأكد من إضافة عنوان لكل مربع حتى لا يظهر مكانه علامة \"@\". تأكد أن لا تضيف مربع Widgets In Tabs هنا."
+
+#. translators: plugin header field 'PluginURI'
+#: widgets-in-tabs.php:0
+#@ wit
+msgid "http://wordpress.org/plugins/widgets-in-tabs/"
+msgstr ""
+
+#: widgets-in-tabs.php:140
+#@ wit
+msgid "Go to Widgets"
+msgstr "المربعات الجانبية"
+
+#: widgets-in-tabs.php:102
+#@ wit
+msgid "Animation Interval in seconds: (0 = disable)"
+msgstr "الفاصل الزمني للحركة بالثواني: (0 = تعطيل)"
+
