@@ -15,14 +15,11 @@ There are many awesome widgets out there, only your website's space is very prec
 Widgets In Tabs is an awesome plugin, that lets you group as many awesome widgets as you want, in one beautiful widget.
 
 Widgets In Tabs (WIT for short) adds a special widgets area (sidebar) and a new widget.
-
 This widgets area is special, because it will not appear anywhere in your site. It's just for the WIT plugin.
-
 You can add as many widgets as you want to the special widgets area, just like any other widget area (or sidebar).
-
 WIT widget will take all those widgets from the special sidebar, and turn them into one tabbed widget, light and beautiful.
 
-A list of awesome features:
+= A list of awesome features: =
 
 *   WIT uses the styles of your current theme. That means WIT doesn't have its own set of styles. Instead, it blends in with your theme's styles.
 *   Nice scrollable titles. Instead of stacking widgets' titles, you get a one-line, scrollable titles.
