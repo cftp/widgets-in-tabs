@@ -1,8 +1,8 @@
 === Widgets In Tabs ===
 Contributors: ahspw
-Tags: tabs, widget, theme,
+Tags: tabs, tabbed, widget, tabbed widget, theme, sidebar, widget area
 Requires at least: 3.5
-Tested up to: 3.8.2
+Tested up to: 3.9
 Stable tag: 0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -10,6 +10,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Group any number of widgets into one tabbed, light, and beautiful widget.
 
 == Description ==
+
+Display many widgets as one tabbed widget, with dynamic style and sleek transition.
 
 There are many awesome widgets out there, only your website's space is very precious!
 Widgets In Tabs is an awesome plugin, that lets you group as many awesome widgets as you want, in one beautiful widget.
