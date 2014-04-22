@@ -3,7 +3,7 @@ Contributors: ahspw
 Tags: tabs, tabbed, widget, tabbed widget, theme, sidebar, widget area
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 0.1
+Stable tag: 0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,22 +11,30 @@ Group any number of widgets into one tabbed, light, and beautiful widget.
 
 == Description ==
 
-Display many widgets as one tabbed widget, with dynamic style and sleek transition.
+Widgets In Tabs is an awesome plugin, that lets you group as many awesome widgets as you want, in one tabbed and beautiful widget, with dynamic styles, and a sleek (and, at your option, automatic) transition.
 
-There are many awesome widgets out there, only your website's space is very precious!
-Widgets In Tabs is an awesome plugin, that lets you group as many awesome widgets as you want, in one beautiful widget.
+= Examples =
+
+* You can use WIT to show Recent Posts Widget and Recent Comments Widget, as one widget with two tabs.
+* You might want to include a third tab to show Tag Cloud widget, or Categories widget.
+* Or perhabs you have a Facebook like box widget, and a Google badge widget, and you want them to be displayed as one widget with two tabs.
+* and the list goes on...
 
 Widgets In Tabs (WIT for short) adds a special widgets area (sidebar) and a new widget.
 This widgets area is special, because it will not appear anywhere in your site. It's just for the WIT plugin.
-You can add as many widgets as you want to the special widgets area, just like any other widget area (or sidebar).
-WIT widget will take all those widgets from the special sidebar, and turn them into one tabbed widget, light and beautiful.
+You can add as many widgets as you want to the special widgets area, just like any other widget area.
+WIT widget will take all of those widgets, and turn them into one tabbed widget, light and beautiful.
 
-= A list of awesome features: =
+= Features: =
 
-*   WIT uses the styles of your current theme. That means WIT doesn't have its own set of styles. Instead, it blends in with your theme's styles.
-*   Nice scrollable titles. Instead of stacking widgets' titles, you get a one-line, scrollable titles.
-*   Animated transition between widgets (Optional). Choose how many seconds to wait before switching to the next widget, with a sleek transition animation. 
-*   RTL support.
+* Dynamic Styles
+    * WIT uses the styles of your current theme. That means WIT doesn't have its own set of styles. Instead, it blends in with your theme's styles. You might want to check the screenshots tab!
+* Nice Scrollable Titles
+    * Instead of stacking widgets' titles, you get a one-line, scrollable titles.
+* Animated Transition between Widgets
+    * You can even make it automatic, by choosing how many seconds to wait before switching to the next tab, with a sleek transition animation.
+* RTL support and Translation Ready
+    * It already has Arabic!
 
 == Installation ==
 
@@ -38,8 +46,15 @@ WIT widget will take all those widgets from the special sidebar, and turn them i
 
 Some of the features to expect in the next releases:
 
-* Customizable animation
-* Improved performance
+* More animations
+* More options
+
+== Credits ==
+
+WIT uses the following plugins:
+
+* [prefect-scrollbar](http://noraesae.github.io/perfect-scrollbar)
+* [jquery-mousewheel](http://github.com/brandonaaron/jquery-mousewheel)
 
 == Screenshots ==
 
@@ -49,6 +64,20 @@ Some of the features to expect in the next releases:
 
 == Changelog ==
 
+= 0.5 =
+
+* Bugfix: when animation is disabled, clicking on a tab causes crazy animation
+* Dependencies upgraded
+* Code reviewed and some parts rewritten
+* WIT widget in admin area is now unique!
+* Known issues: scrollbar disappears on RTL websites on non-webkit browsers
+
 = 0.1 = 
 
-* initial release
+initial release
+
+== Upgrade Notice ==
+
+= 0.5 =
+
+This version fixes a bug, upgrades dependencies, and improves performance. See Changelog for details.
