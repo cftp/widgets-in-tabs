@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Widgets In Tabs v0.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-04-22 01:38:01+0000\n"
+"Last-Translator: Anas H. Sulaiman <ahs.pw>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Arabic\n"
+"X-Poedit-Country: SAUDI ARABIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#. translators: plugin header field 'Name'
+#: widgets-in-tabs.php:0
+#: widgets-in-tabs.php:39
+#: widgets-in-tabs.php:75
+#@ wit
+msgid "Widgets In Tabs"
+msgstr ""
+
+#. translators: plugin header field 'PluginURI'
+#: widgets-in-tabs.php:0
+#@ wit
+msgid "http://wordpress.org/plugins/widgets-in-tabs/"
+msgstr ""
+
+#. translators: plugin header field 'Description'
+#: widgets-in-tabs.php:0
+#: widgets-in-tabs.php:40
+#@ wit
+msgid "Group any number of widgets into one tabbed, light, and beautiful widget."
+msgstr "اجمع العديد من المربعات الجانبية في مربع جانبي واحد، مبوب وخفيف وجميل."
+
+#. translators: plugin header field 'Author'
+#: widgets-in-tabs.php:0
+#@ wit
+msgid "Anas H. Sulaiman"
+msgstr "أنس هشام سليمان"
+
+#. translators: plugin header field 'AuthorURI'
+#: widgets-in-tabs.php:0
+#@ wit
+msgid "http://ahs.pw/"
+msgstr ""
+
+#: widgets-in-tabs.php:24
+#@ wit
+msgid "Widgets In Tabs Area"
+msgstr "مساحة Widgets In Tabs"
+
+#: widgets-in-tabs.php:25
+#@ wit
+msgid "Add widgets here to show them in WIT Widget. If you put WIT widget here, bad things will happen!"
+msgstr "أضف المربعات الجانبية هنا لإظهارهم في مربع WIT الجانبي. إذا أضفت مربع WIT الجانبي هنا، ستحدث أشياء سيئة!"
+
+#: widgets-in-tabs.php:71
+#@ wit
+msgid "Untitled"
+msgstr "دون عنوان"
+
+#: widgets-in-tabs.php:99
+#@ wit
+msgid "Animation Interval in seconds: (0 = disable)"
+msgstr "الفاصل الزمن للحركة بالثواني: (0 = إيقاف)"
+
+#: widgets-in-tabs.php:137
+#@ wit
+msgid "Go to Widgets"
+msgstr "المربعات الجانبية"
+
+#. translators: plugin header field 'Version'
+#: widgets-in-tabs.php:0
+#@ wit
+msgid "0.5"
+msgstr ""
+
+#: widgets-in-tabs.php:97
+#@ wit
+msgid "All widgets added to Widgets In Tabs Area will appear as tabs in place of this widget."
+msgstr "سيظهر مكان هذا المربع الجانبي كل المربعات الجانبية الموجود في مساحة Widgets In Tabs."
+
