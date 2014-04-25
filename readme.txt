@@ -44,9 +44,9 @@ WIT widget will take all of those widgets, and turn them into one tabbed widget,
 
 WIT is released for FREE, and it will always be. If you like this plugin, share it and spread the wrod. This helps very much, Thanks.
 
-* [Facebook](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwidgets-in-tabs%2F&t=Widgets%20In%20Tabs%20WordPress%20Plugin)
-* [Twitter](https://twitter.com/intent/tweet?text=Widgets%20In%20Tabs%20WordPress%20Plugin&url=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwidgets-in-tabs%2F)
-* [Google+](https://plus.google.com/share?url=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwidgets-in-tabs%2F)
+* [Facebook](//www.facebook.com/sharer.php?u=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwidgets-in-tabs%2F)
+* [Twitter](//twitter.com/intent/tweet?text=Widgets%20In%20Tabs%20WordPress%20Plugin&url=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwidgets-in-tabs%2F)
+* [Google+](//plus.google.com/share?url=https%3A%2F%2Fwordpress.org%2Fplugins%2Fwidgets-in-tabs%2F)
 * Or on your favorite social network!
 
 == Installation ==
