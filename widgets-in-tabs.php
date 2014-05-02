@@ -119,7 +119,7 @@ class Widgets_In_Tabs extends WP_Widget {
 
 			echo '<li><a href="#'. $id .'"><span class="tab-icon tab-icon-'. preg_replace('/-([0-9]+)/', '', $id) .'"></span><span class="tab-title">'. $title .'</span></a></li>';
 		}
-		
+
 		echo '</ul>';
 
 		dynamic_sidebar('wit_area');
@@ -182,7 +182,7 @@ class Widgets_In_Tabs extends WP_Widget {
 			// Without proper widget_ids we can't continue. 
 			return array();
 		}
-		
+
 		// Loop over each widget_id so we can fetch the data out of the wp_options table.
 		foreach( $widget_ids as $id ) {
 			
