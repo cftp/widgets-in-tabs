@@ -1,7 +1,6 @@
 .widget_widgets_in_tabs .wit-nav 
 	{
 	border-bottom: 1px solid #999;
-	overflow-x: hidden;
 	width: 100%;
 	}
 
@@ -10,14 +9,14 @@
 	display: none;
 	}
 
-.tabs-shortcode .wit-nav:before,
-.tabs-shortcode .wit-nav:after 
+.widget_widgets_in_tabs .wit-nav:before,
+.widget_widgets_in_tabs .wit-nav:after 
 	{
 	content: " ";
 	display: table;
 	}
 
-.tabs-shortcode .wit-nav:after 
+.widget_widgets_in_tabs .wit-nav:after 
 	{
 	clear: both;
 	}
