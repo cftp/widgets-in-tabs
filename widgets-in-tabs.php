@@ -55,8 +55,8 @@ class Widgets_In_Tabs extends WP_Widget {
 
 		// register assets
 		if ( is_active_widget( false, false, $this->id_base ) && !is_admin()) {
-			add_action( 'wp_print_styles', array( $this, 'enqueue_style' ) );
-			add_action( 'wp_print_scripts', array( $this, 'enqueue_scripts' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_style' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		}
 		add_action('admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ));
 
