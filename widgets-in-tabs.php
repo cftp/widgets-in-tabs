@@ -16,21 +16,26 @@ define( 'WIT_VERSION', '0.7' );
 
 // Register WIT
 add_action('widgets_init', 'register_wit');
+
 function register_wit() {
-	 register_sidebar(array(
-        'id' => 'wit_area',
-        'name' => __('Widgets In Tabs Area', 'wit'),
-        'description'   => __('Add widgets here to show them in WIT Widget. If you put WIT widget here, bad things will happen!', 'wit'),
-        'before_widget' => '<li id="%1$s" class="%2$s wit-tab-content">',
-        'after_widget' => '</li>',
-        'before_title' => '<h3 class="wit-tab-title">',
-        'after_title' => '</h3>'
+	 
+	 register_sidebar(
+	 	array (
+			'id' => 'wit_area',
+			'name' => __('Widgets In Tabs Area', 'wit'),
+			'description'   => __('Add widgets here to show them in the tab widget.', 'wit'),
+			'before_widget' => '<section id="%1$s" class="%2$s wit-tab-content">',
+			'after_widget' => '</section>',
+			'before_title' => '<h4 class="wit-tab-title">',
+			'after_title' => '</h4>'
         )
-	 );
+	);
 
 	register_widget('Widgets_In_Tabs');
 }
+
 add_action( 'plugins_loaded', 'wit_load_textdomain' );
+
 function wit_load_textdomain() {
 	load_plugin_textdomain( 'wit', false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 }
@@ -39,28 +44,22 @@ function wit_load_textdomain() {
 class Widgets_In_Tabs extends WP_Widget {
 
 	function __construct() {
-		parent::__construct(
-			'Widgets_In_Tabs',
+		
+		parent::__construct( 
+			'Widgets_In_Tabs', 
 			__('Widgets In Tabs', 'wit'),
 			array( 'description' => __( 'Group any number of widgets into one tabbed, light, and beautiful widget.', 'wit' ) )
 		);
 
-		add_shortcode( 'wit', array( $this, 'wit_shortcode' ) );
 		add_filter('plugin_action_links_' . plugin_basename(__FILE__), array( $this, 'wit_go_to_widgets_link' ) );
 
-		// Register assets
+		// register assets
 		if ( is_active_widget( false, false, $this->id_base ) && !is_admin()) {
 			add_action( 'wp_print_styles', array( $this, 'enqueue_style' ) );
 			add_action( 'wp_print_scripts', array( $this, 'enqueue_scripts' ) );
 		}
 		add_action('admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ));
 
-		// Register shortcode button
-		if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) {
-			add_filter( 'mce_buttons', array( $this, 'shortcode_mce_button' ) );
-			add_filter( 'mce_external_plugins', array( $this, 'shortcode_mce_plugin' ) );
-		}
-		add_action( 'admin_print_footer_scripts', array ( $this, 'shortcode_quicktag' ) );
 	}
 
 	public function enqueue_style() {
@@ -69,14 +68,7 @@ class Widgets_In_Tabs extends WP_Widget {
 	}
 
 	public function enqueue_scripts() {
-		wp_register_script('wit', plugins_url( 'wit-all.min.js', __FILE__ ), array('jquery'), WIT_VERSION, true);
-
-		$l10n = array(
-			'string_untitled' => __('Untitled', 'wit')
-			);
-		if (!wp_script_is( 'wit', 'enqueued' ))
-			wp_localize_script('wit', 'WIT_L10N', $l10n);
-
+		wp_register_script('wit', plugins_url( 'wit-all.min.js', __FILE__ ), array('jquery', 'jquery-ui-tabs'), WIT_VERSION, true);
 		wp_enqueue_script( 'wit' );
 	}
 
@@ -89,46 +81,9 @@ class Widgets_In_Tabs extends WP_Widget {
 
 	public function wit_go_to_widgets_link($actions) {
 		return array_merge(
-			array( 'settings' => sprintf( '<a href="%s">%s</a>', 'widgets.php', __( 'Go to Widgets', 'wit' ) ) ),
+			array( 'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'widgets.php' ), __( 'Go to Widgets', 'wit' ) ) ),
 			$actions
 		);
-	}
-
-	public function shortcode_mce_button( $buttons ) {
-		array_push( $buttons, '|', 'wit_button' );
-		return $buttons;
-	}
-
-	public function shortcode_mce_plugin( $plugins ) {
-		$plugins['wit_button'] = plugins_url( 'wit-button.min.js', __FILE__ );
-		return $plugins;
-	}
-
-	public function shortcode_quicktag() {
-	    if (wp_script_is('quicktags')){
-			?>
-		    <script type="text/javascript">
-			    QTags.addButton( 'wit_quicktag', '[wit]', '[wit]', '', 'w', 'WIT Widget' );
-		    </script>
-			<?php
-	    }
-	}
-
-	public function wit_shortcode( $atts ) {
-		// example:
-		// [wit interval='3' tab_style='scroll']
-		 
-		$atts = shortcode_atts( $this->defaults, $atts );
-		$instance = "interval={$atts['interval']}&tab_style={$atts['tab_style']}";
-		$args = array(
-			'before_widget' => '<div class="widget widget_widgets_in_tabs">',
-			'after_widget' => '</div>',
-			'before_title' => '<h2 class="wit-title">',
-			'after_title' => '</h2>'
-			);
-		ob_start();
-		the_widget( 'Widgets_In_Tabs', $instance, $args );
-		return ob_get_clean();
 	}
 
 	/**
@@ -140,19 +95,35 @@ class Widgets_In_Tabs extends WP_Widget {
 	 * @param array $instance Saved values from database.
 	 */
 	public function widget( $args, $instance ) {
-		$instance = wp_parse_args((array) $instance, $this->defaults);
-		$data_string = "";
-		foreach ($instance as $key => $value) {
-			$data_string .= "data-$key=\"$value\" ";
-		}
 
-		$title = __('Widgets In Tabs', 'wit');
+		// protect from stupidity - this widget cannot exist within itself
+		if ( $args['id'] == 'wit_area' ) return;
+
+		// get the widgets associated to the wit sidebar
+		$wit_widgets = $this->widget_data_for_sidebar('wit_area');
+		
+		// sidebar is empty - return
+		if (empty( $wit_widgets ) ) return;
 
 		echo $args['before_widget'];
-		echo $args['before_title'] . $title . $args['after_title'];
-		echo "<ul class=\"wit-tab-container\" $data_string>";
-		dynamic_sidebar('wit_area');
+
+		echo '<ul class="wit-nav">';
+
+		foreach ($wit_widgets as $id => $widget) {
+			
+			if ($widget->title == '') {
+				$title = __('Widget', 'wit');
+			} else {
+				$title = $widget->title;
+			}
+
+			echo '<li><a href="#'. $id .'"><span class="tab-icon tab-icon-'. preg_replace('/-([0-9]+)/', '', $id) .'"></span><span class="tab-title">'. $title .'</span></a></li>';
+		}
+		
 		echo '</ul>';
+
+		dynamic_sidebar('wit_area');
+
 		echo $args['after_widget'];
 	}
 
@@ -164,19 +135,8 @@ class Widgets_In_Tabs extends WP_Widget {
 	 * @param array $instance Previously saved values from database.
 	 */
 	public function form( $instance ) {
-		$instance = wp_parse_args((array) $instance, $this->defaults);
-
 		?>
-		<p><?php _e('All widgets added to Widgets In Tabs Area will appear as tabs in place of this widget.', 'wit' ); ?></p>
-		<p>
-			<label for="<?php echo $this->get_field_id( 'interval' ); ?>"><?php _e( 'Animation Interval in seconds: (0 = disable)' , 'wit'); ?></label> 
-			<input class="widefat" id="<?php echo $this->get_field_id( 'interval' ); ?>" name="<?php echo $this->get_field_name( 'interval' ); ?>" type="text" value="<?php echo esc_attr( $instance['interval'] ); ?>" />
-		</p>
-		<p>
-			<legend><?php _e( 'Tab style:' , 'wit'); ?></legend>
-			<input id="<?php echo $this->get_field_id( 'tab_style' ) . '-1'; ?>" name="<?php echo $this->get_field_name( 'tab_style' ); ?>" type="radio" value="scroll"   <?php if ($instance['tab_style'] == 'scroll')   echo "checked"; ?>/><label for="<?php echo $this->get_field_id( 'tab_style' ) . '-1'; ?>"><?php _e('Scrollbar', 'wit') ?></label>
-			<input id="<?php echo $this->get_field_id( 'tab_style' ) . '-2'; ?>" name="<?php echo $this->get_field_name( 'tab_style' ); ?>" type="radio" value="show_all" <?php if ($instance['tab_style'] == 'show_all') echo "checked"; ?>/><label for="<?php echo $this->get_field_id( 'tab_style' ) . '-2'; ?>"><?php _e('Show All', 'wit') ?></label>
-		</p>
+		<p><?php _e('Widgets added to the Widgets In Tabs Area sidebar will appear here (in tabs).', 'wit' ); ?></p>
 		<?php
 	}
 
@@ -192,25 +152,54 @@ class Widgets_In_Tabs extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$intervali = (int)$new_instance['interval'];
-
-		// make sure the interval string is an integer && is greater than or equal to zero
-		if (((string)$intervali == $new_instance['interval']) && $intervali >= 0)
-			$instance['interval'] =  $new_instance['interval'];
-		else 
-			$instance['interval'] = '0';
-
-		if ($new_instance['tab_style'] == 'show_all')
-			$instance['tab_style'] = 'show_all';
-		else
-			$instance['tab_style'] = 'scroll';
-
 		return $instance;
 	}
 
-	private $defaults = array(
-			'interval' => '0',
-			'tab_style' => 'scroll'
-			);
+	/**
+	 * widget_data_for_sidebar
+	 *
+	 * Return details of the widgets contained within the specified sidebar
+	 * 
+	 * @param  string $sidebar_id [description]
+	 * @return array 
+	 */
+	public function widget_data_for_sidebar($sidebar_id) {
+		global $wp_registered_sidebars, $wp_registered_widgets;
+		
+		// Holds the final data to return
+		$output = array();
+
+		if( !$sidebar_id ) {
+			// There is no sidebar registered with the name provided.
+			return $output;
+		} 
+		
+		// A nested array in the format $sidebar_id => array( 'widget_id-1', 'widget_id-2' ... );
+		$sidebars_widgets = wp_get_sidebars_widgets();
+		$widget_ids = $sidebars_widgets[$sidebar_id];
+		
+		if( !$widget_ids ) {
+			// Without proper widget_ids we can't continue. 
+			return array();
+		}
+		
+		// Loop over each widget_id so we can fetch the data out of the wp_options table.
+		foreach( $widget_ids as $id ) {
+			
+			// The name of the option in the database is the name of the widget class.  
+			$option_name = $wp_registered_widgets[$id]['callback'][0]->option_name;
+			
+			// Widget data is stored as an associative array. To get the right data we need to get the right key which is stored in $wp_registered_widgets
+			$key = $wp_registered_widgets[$id]['params'][0]['number'];
+			
+			$widget_data = get_option($option_name);
+			
+			// Add the widget data on to the end of the output array.
+			$output[$id] = (object) $widget_data[$key];
+		}
+		
+		return $output;
+	}
+
 
 } // class Widgets_In_Tabs
