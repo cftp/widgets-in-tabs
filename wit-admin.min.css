@@ -1,3 +1,11 @@
-div[id*="widgets_in_tabs"]{-webkit-perspective:500px;perspective:500px}div[id*="widgets_in_tabs"] .widget-top{background-color:#d7ebec;-webkit-transition-duration:200ms;transition-duration:200ms}
-div[id*="widgets_in_tabs"].ui-draggable .widget-top{-webkit-transform:rotateY(30deg);transform:rotateY(30deg)}div[id*="widgets_in_tabs"].ui-draggable:hover .widget-top{-webkit-transform:rotateY(0);transform:rotateY(0)}
-#wit_area{background-color:#d7ebec;padding-bottom:2px!important;margin-bottom:0!important}
+div[id*="widgets_in_tabs"] .widget-top
+	{
+	background-color: #f7fcfe;
+	}
+
+#wit_area
+	{
+	background-color:#f7fcfe;
+	padding-bottom: 2px!important;
+	margin-bottom:0!important
+	}
