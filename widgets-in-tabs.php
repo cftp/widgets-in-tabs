@@ -4,7 +4,7 @@
  * Plugin URI: http://wordpress.org/plugins/widgets-in-tabs/
  * Description: Group any number of widgets into one tabbed, light, and beautiful widget.
  * Author: Anas H. Sulaiman
- * Version: 0.7
+ * Version: 0.8
  * Author URI: http://ahs.pw/
  * Text Domain: wit
  * Domain Path: /langs/
@@ -12,7 +12,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-define( 'WIT_VERSION', '0.7' );
+define( 'WIT_VERSION', '0.8' );
 
 // Register WIT
 add_action('widgets_init', 'register_wit');
