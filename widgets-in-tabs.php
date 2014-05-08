@@ -54,7 +54,7 @@ class Widgets_In_Tabs extends WP_Widget {
 		add_filter('plugin_action_links_' . plugin_basename(__FILE__), array( $this, 'wit_go_to_widgets_link' ) );
 
 		// register assets
-		if ( is_active_widget( false, false, $this->id_base ) && !is_admin()) {
+		if ( is_active_widget( false, false, $this->id_base ) && !is_admin() && ! isset( $_POST[ 'customized' ] ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_style' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		}
