@@ -1,11 +1,11 @@
 <?php
 /*
- * Plugin Name: Widgets In Tabs
- * Plugin URI: http://wordpress.org/plugins/widgets-in-tabs/
+ * Plugin Name: CFTP Widgets In Tabs
+ * Plugin URI: https://github.com/cftp/widgets-in-tabs
  * Description: Group any number of widgets into one tabbed, light, and beautiful widget.
- * Author: Anas H. Sulaiman
- * Version: 0.8
- * Author URI: http://ahs.pw/
+ * Author: Scott Evans (Code For The People)
+ * Version: 1.0
+ * Author URI: http://codeforthepeople.com
  * Text Domain: wit
  * Domain Path: /langs/
  * License: GPL2 or later
