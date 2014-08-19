@@ -18,7 +18,7 @@ define( 'WIT_VERSION', '0.8' );
 add_action('widgets_init', 'register_wit');
 
 function register_wit() {
-	 
+
 	 register_sidebar(
 	 	array (
 			'id' => 'wit_area',
@@ -44,9 +44,9 @@ function wit_load_textdomain() {
 class Widgets_In_Tabs extends WP_Widget {
 
 	function __construct() {
-		
-		parent::__construct( 
-			'Widgets_In_Tabs', 
+
+		parent::__construct(
+			'Widgets_In_Tabs',
 			__('Widgets In Tabs', 'wit'),
 			array( 'description' => __( 'Group any number of widgets into one tabbed, light, and beautiful widget.', 'wit' ) )
 		);
@@ -101,16 +101,18 @@ class Widgets_In_Tabs extends WP_Widget {
 
 		// get the widgets associated to the wit sidebar
 		$wit_widgets = $this->widget_data_for_sidebar('wit_area');
-		
+
 		// sidebar is empty - return
 		if (empty( $wit_widgets ) ) return;
 
 		echo $args['before_widget'];
 
+		do_action( 'wit_before_widget', $instance );
+
 		echo '<ul class="wit-nav">';
 
 		foreach ($wit_widgets as $id => $widget) {
-			
+
 			if ($widget->title == '') {
 				$title = __('Widget', 'wit');
 			} else {
@@ -123,6 +125,8 @@ class Widgets_In_Tabs extends WP_Widget {
 		echo '</ul>';
 
 		dynamic_sidebar('wit_area');
+
+		do_action( 'wit_after_widget', $instance );
 
 		echo $args['after_widget'];
 	}
@@ -159,45 +163,45 @@ class Widgets_In_Tabs extends WP_Widget {
 	 * widget_data_for_sidebar
 	 *
 	 * Return details of the widgets contained within the specified sidebar
-	 * 
+	 *
 	 * @param  string $sidebar_id [description]
-	 * @return array 
+	 * @return array
 	 */
 	public function widget_data_for_sidebar($sidebar_id) {
 		global $wp_registered_sidebars, $wp_registered_widgets;
-		
+
 		// Holds the final data to return
 		$output = array();
 
 		if( !$sidebar_id ) {
 			// There is no sidebar registered with the name provided.
 			return $output;
-		} 
-		
+		}
+
 		// A nested array in the format $sidebar_id => array( 'widget_id-1', 'widget_id-2' ... );
 		$sidebars_widgets = wp_get_sidebars_widgets();
 		$widget_ids = $sidebars_widgets[$sidebar_id];
-		
+
 		if( !$widget_ids ) {
-			// Without proper widget_ids we can't continue. 
+			// Without proper widget_ids we can't continue.
 			return array();
 		}
 
 		// Loop over each widget_id so we can fetch the data out of the wp_options table.
 		foreach( $widget_ids as $id ) {
-			
-			// The name of the option in the database is the name of the widget class.  
+
+			// The name of the option in the database is the name of the widget class.
 			$option_name = $wp_registered_widgets[$id]['callback'][0]->option_name;
-			
+
 			// Widget data is stored as an associative array. To get the right data we need to get the right key which is stored in $wp_registered_widgets
 			$key = $wp_registered_widgets[$id]['params'][0]['number'];
-			
+
 			$widget_data = get_option($option_name);
-			
+
 			// Add the widget data on to the end of the output array.
 			$output[$id] = (object) $widget_data[$key];
 		}
-		
+
 		return $output;
 	}
 
