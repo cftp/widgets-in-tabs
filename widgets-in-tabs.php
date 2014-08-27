@@ -109,6 +109,8 @@ class Widgets_In_Tabs extends WP_Widget {
 
 		do_action( 'wit_before_widget', $instance );
 
+		do_action( 'wit_before_nav', $instance );
+
 		echo '<ul class="wit-nav">';
 
 		foreach ($wit_widgets as $id => $widget) {
@@ -123,6 +125,8 @@ class Widgets_In_Tabs extends WP_Widget {
 		}
 
 		echo '</ul>';
+
+		do_action( 'wit_after_nav', $instance );
 
 		dynamic_sidebar('wit_area');
 
