@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/cftp/widgets-in-tabs
  * Description: Group any number of widgets into one tabbed, light, and beautiful widget.
  * Author: Scott Evans (Code For The People)
- * Version: 1.0
+ * Version: 1.1
  * Author URI: http://codeforthepeople.com
  * Text Domain: wit
  * Domain Path: /langs/
